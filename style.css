@@ -1,0 +1,15 @@
+/* theoballardie.com: plain black and white, no web fonts, no frameworks. */
+body { max-width: 52rem; margin: 0 auto; padding: 1rem; background: #fff; color: #000; line-height: 1.45; }
+a { color: #000; }
+.board { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.5rem; padding: 1rem 0; list-style: none; margin: 0; }
+.board li { position: relative; border: 1px solid #000; padding: 1.2rem 1rem .8rem; box-shadow: 4px 4px 0 #000; background: #fff; }
+.board li::before { content: ""; position: absolute; top: -6px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #000; }
+.board li:nth-child(3n+1) { transform: rotate(-1deg); }
+.board li:nth-child(3n+2) { transform: rotate(.8deg); }
+.board li:nth-child(3n) { transform: rotate(-.4deg); }
+.board h3 { margin: 0 0 .4rem; }
+.board p { margin: .4rem 0; }
+.tag { font-size: .8em; text-transform: uppercase; letter-spacing: .08em; }
+@media (prefers-reduced-motion: no-preference) { .board li { transition: transform .15s; } .board li:hover { transform: rotate(0) translate(-2px, -2px); } }
+.small { font-size: .9em; }
+footer { margin-top: 2rem; border-top: 1px solid #000; }

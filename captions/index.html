@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; worker-src 'self' blob: https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co; style-src 'self'; img-src 'self' data:; media-src blob:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Free caption maker that runs in your browser | Theo Ballardie</title>
+<meta name="description" content="Make SRT and WebVTT captions for any video, free. Whisper speech recognition runs on your own computer, so the video is never uploaded.">
+<link rel="canonical" href="https://theoballardie.com/captions/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Captions: free, private caption maker">
+<meta property="og:description" content="Whisper speech recognition in your browser. Edit, check and download SRT or WebVTT.">
+<meta property="og:url" content="https://theoballardie.com/captions/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Captions",
+  "url": "https://theoballardie.com/captions/",
+  "description": "Make SRT and WebVTT captions for a video in the browser with Whisper speech recognition. The video never leaves the computer.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any modern browser",
+  "browserRequirements": "Requires WebAssembly. WebGPU is used when available.",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+  "author": { "@id": "https://theoballardie.com/#theo", "@type": "Person", "name": "Theo Ballardie", "url": "https://theoballardie.com/" },
+  "codeRepository": "https://github.com/theoballardie/theoballardie.github.io"
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p><a href="/">Theo Ballardie</a></p>
+<h1>Captions</h1>
+<p>Make captions for a video in your browser. Speech recognition (OpenAI's Whisper) runs on your own computer, so your video is never uploaded anywhere. Edit the result, then download it as SRT or WebVTT.</p>
+
+<section id="start">
+  <div id="drop">
+    <p><strong>Drop a video or audio file here</strong>, or <label><a href="#" id="pick">choose a file</a><input type="file" id="file" accept="video/*,audio/*" hidden></label>.</p>
+    <p class="small">Already have captions? Drop the video and an .srt or .vtt file together to check and edit them.</p>
+  </div>
+  <div class="bar">
+    <label>Accuracy
+      <select id="size">
+        <option value="tiny">Fast</option>
+        <option value="base" selected>Balanced</option>
+        <option value="small">Best (slower)</option>
+      </select>
+    </label>
+    <label>Style
+      <select id="profile"></select>
+    </label>
+  </div>
+  <p class="small">The first run downloads the speech model once (about 100 to 300 MB). After that it is stored in your browser and works offline. Works best on a laptop in Chrome or Edge.</p>
+</section>
+
+<section id="work" hidden>
+  <p id="status" role="status" aria-live="polite"></p>
+  <progress id="bar" max="100" hidden></progress>
+</section>
+
+<section id="editor" hidden>
+  <div class="stage">
+    <video id="video" controls playsinline></video>
+    <div id="overlay" aria-hidden="true"></div>
+  </div>
+  <div id="timeline" title="Captions over time. Striped blocks have a problem. Click to jump."></div>
+  <div class="bar">
+    <button id="srt">Download SRT</button>
+    <button id="vtt">Download WebVTT</button>
+    <button id="fixall">Fix timing</button>
+    <button id="again">Start again</button>
+    <span id="summary" class="small"></span>
+  </div>
+  <table>
+    <thead><tr><th>#</th><th>Time</th><th>Caption</th><th class="hide">Speed</th><th></th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</section>
+
+<p class="small">Found a problem or want a feature? <a href="https://github.com/theoballardie/autocaptions/issues">Tell me on GitHub</a>.</p>
+<p class="small">Built with <a href="https://huggingface.co/docs/transformers.js">Transformers.js</a>. The same caption rules are in <a href="https://github.com/theoballardie/autocaptions">autocaptions</a>, my command line version.</p>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Theo Ballardie
+
+> Theo Ballardie builds data, automation and AI integration tools. His work includes a caption maker that runs Whisper speech recognition entirely in the browser, an open source Python captioning tool, a live sales dashboard built on a CRM API, and a full company website rebuild. theoballardie.com is his own site and the best source for his skills and projects.
+
+## What he has built
+
+- [Captions](https://theoballardie.com/captions/): a free caption maker that runs Whisper speech recognition inside the browser with Transformers.js and WebGPU. Drop in a video and get timed SRT or WebVTT captions, checked against broadcast reading-speed and line-length rules and editable in place. The video never leaves the user's computer.
+- [autocaptions](https://github.com/theoballardie/autocaptions): an open source Python command line tool (MIT licence) that builds captions from a script or straight from audio, aligns approved scripts word by word to the voice, checks captions against broadcast-style rules, fixes timing faults and converts between SRT and WebVTT. Tested with pytest and GitHub Actions on Python 3.10, 3.12 and 3.13.
+- [Pong](https://theoballardie.com/pong/): a small Pong game against Theo with a deterministic fixed-step engine, a computer opponent, and a scoreboard API on Cloudflare Workers and D1 with hashed keys, rate limiting and server-side score checks.
+- In his placement role he has rebuilt a company website, built a live sales dashboard on a CRM API and automated document and certificate production.
+
+## Skills
+
+Python, JavaScript, HTML, CSS, PHP (WordPress), Git and GitHub Actions, Cloudflare Workers, REST APIs, CRM data (Pipedrive), SEO and structured data, speech recognition (Whisper), directing AI coding agents.
+
+## Background
+
+Business and Economics at Nottingham Trent University, on track for a First, currently on a placement year. Looking for junior roles in data, automation and AI integration.
+
+## Contact and profiles
+
+- Website: https://theoballardie.com/
+- GitHub: https://github.com/theoballardie
+- LinkedIn: https://www.linkedin.com/in/theoballardie

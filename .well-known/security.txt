@@ -1,0 +1,4 @@
+Contact: https://github.com/theoballardie/theoballardie.github.io/security/advisories/new
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://theoballardie.com/.well-known/security.txt

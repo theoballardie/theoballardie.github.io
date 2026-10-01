@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://api.theoballardie.com; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Pong: play against Theo | Theo Ballardie</title>
+<meta name="description" content="A small game of Pong against Theo Ballardie. First to three.">
+<link rel="canonical" href="https://theoballardie.com/pong/">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="game.js"></script>
+</head>
+<body>
+<p><a href="/">Theo Ballardie</a></p>
+<h1>Pong</h1>
+<p>You against me, first to three. Move your mouse or finger over the court, or use the arrow keys.</p>
+
+<canvas id="court" tabindex="0" aria-label="Pong court. You are the left paddle, Theo is the right." role="img"></canvas>
+<p id="status" role="status" aria-live="polite">Tap the court to start.</p>
+
+<section id="result" hidden>
+  <form id="signup">
+    <label for="name">Put your name on the scoreboard</label><br>
+    <input id="name" name="name" required minlength="2" maxlength="20" pattern="[A-Za-z0-9 _.\-]{2,20}" autocomplete="nickname" placeholder="Display name">
+    <button type="submit">Save score</button>
+  </form>
+  <p id="saved" class="small" role="status"></p>
+</section>
+
+<h2>Most points taken off Theo</h2>
+<ol id="board"><li class="note">Loading</li></ol>
+
+<section id="history" hidden>
+  <h2>Your games, <span id="me"></span></h2>
+  <table>
+    <thead><tr><th>Date</th><th>Score (you to Theo)</th><th>Hits</th></tr></thead>
+    <tbody id="games"></tbody>
+  </table>
+</section>
+
+<footer>
+  <p class="small">Only the display name you choose and your scores are stored, never your email or IP address. The game runs at a fixed 120 steps a second in plain JavaScript, and I play perfectly at match point. <a href="https://github.com/theoballardie/theoballardie.github.io/tree/main/pong">See how</a>.</p>
+</footer>
+</body>
+</html>
